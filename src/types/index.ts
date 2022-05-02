@@ -1,3 +1,5 @@
+import { ChangeEventHandler, FormEvent } from "react";
+
 export type TimelineEvent = {
   id: number;
   start: string;
@@ -9,6 +11,16 @@ export type EventProps = {
   lane: number;
   index: number;
   event: TimelineEvent;
+};
+
+export type EventFormFooterProps = {
+  onCancel: () => void;
+  onSubmit: (e: FormEvent) => void;
+};
+
+export type EventFormBodyProps = {
+  newEvent: TimelineEvent;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 };
 
 export type TimelineContext = {

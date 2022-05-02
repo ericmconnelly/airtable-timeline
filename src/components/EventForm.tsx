@@ -1,6 +1,8 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from "react";
 import { EventFormProps } from "../types";
-import { InputFormStyled, EventFormStyled, EventFormLabel } from "../styled";
+import { EventFormStyled } from "../styled";
+import { EventFormBody } from "./EventFormBody";
+import { EventFormFooter } from "./EventFormFooter";
 
 export const EventForm: FC<EventFormProps> = ({ event, onCancel, onSave }) => {
   const [newEvent, setNewEvent] = useState(event);
@@ -16,54 +18,8 @@ export const EventForm: FC<EventFormProps> = ({ event, onCancel, onSave }) => {
 
   return (
     <EventFormStyled className="event-form" onSubmit={onSubmit}>
-      <EventFormLabel htmlFor="name" className="event-form-label">
-        Name
-      </EventFormLabel>
-
-      <InputFormStyled
-        type="text"
-        id="name"
-        name="name"
-        className="event-form-input"
-        value={newEvent.name}
-        onChange={onChange}
-      />
-
-      <label htmlFor="start" className="event-form-label">
-        Start
-      </label>
-
-      <InputFormStyled
-        type="date"
-        id="start"
-        name="start"
-        className="event-form-input"
-        value={newEvent.start}
-        onChange={onChange}
-      />
-
-      <label htmlFor="end" className="event-form-label">
-        End
-      </label>
-
-      <InputFormStyled
-        type="date"
-        id="end"
-        name="end"
-        className="event-form-input"
-        value={newEvent.end}
-        onChange={onChange}
-      />
-
-      <div className="actions">
-        <button type="button" className="button secondary" onClick={onCancel}>
-          Cancel
-        </button>
-
-        <button type="submit" className="button primary" onClick={onSubmit}>
-          Save
-        </button>
-      </div>
+      <EventFormBody newEvent={newEvent} onChange={onChange} />
+      <EventFormFooter onCancel={onCancel} onSubmit={onSubmit} />
     </EventFormStyled>
   );
 };

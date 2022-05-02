@@ -1,18 +1,13 @@
 import React from "react";
-import { EventForm } from "./EventForm";
-import { format } from "date-fns";
 import { useTimeline } from "../hooks";
 import { FC, useState } from "react";
-import Pencil from "../svg/pencil.svg";
-import X from "../svg/x.svg";
 import { TimelineEvent } from "../types";
 import {
   ModalStyled,
-  ModalBodyStyled,
-  ModalActionsStyled,
-  ModalActionStyled,
 } from "../styled";
 import { ModalProps } from "../types";
+import { ModalHeader } from "./ModalHeader";
+import { ModalBody } from "./ModalBody";
 
 export const Modal: FC<ModalProps> = ({
   isShowing,
@@ -56,44 +51,18 @@ export const Modal: FC<ModalProps> = ({
 
   return (
     <ModalStyled className="modal" coords={coords}>
-      <ModalActionsStyled className="modal-actions">
-        {isEditing ? null : (
-          <ModalActionStyled className="modal-action" onClick={handleEdit}>
-            <Pencil width="1.75rem" />
-          </ModalActionStyled>
-        )}
-
-        <ModalActionStyled className="modal-action" onClick={handleClose}>
-          <X width="1.75rem" />
-        </ModalActionStyled>
-      </ModalActionsStyled>
-
-      <ModalBodyStyled className="modal-body">
-        {isEditing ? (
-          <EventForm
-            event={event}
-            onCancel={handleCancel}
-            onSave={handleSave}
-          />
-        ) : (
-          <>
-            <h2>{event.name}</h2>
-
-            <p>{`${format(new Date(event.start), "P")} - ${format(
-              new Date(event.end),
-              "P"
-            )}`}</p>
-
-            <button
-              type="button"
-              className="actions button primary"
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
-          </>
-        )}
-      </ModalBodyStyled>
+      <ModalHeader
+        isEditing={isEditing}
+        handleEdit={handleEdit}
+        handleClose={handleClose}
+      />
+      <ModalBody
+        isEditing={isEditing}
+        event={event}
+        handleSave={handleSave}
+        handleCancel={handleCancel}
+        handleDelete={handleDelete}
+      />
     </ModalStyled>
   );
 };
