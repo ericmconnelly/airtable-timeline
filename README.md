@@ -23,6 +23,7 @@ I did some research and look at a few sources for inspirations:
 - [Google Calendar](https://calendar.google.com/)
 - [Apple macOS Calendar](https://www.icloud.com/calendar)
 - [Gantt Chart](https://en.wikipedia.org/wiki/Gantt_chart)
+and a few more [creative examples](https://www.apptio.com/blog/42-timelines-is-the-answer/)
 
 ## Tests
 
