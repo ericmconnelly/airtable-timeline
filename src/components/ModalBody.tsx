@@ -1,9 +1,7 @@
 import React from "react";
 import { EventForm } from "./EventForm";
 import { format } from "date-fns";
-import {
-  ModalBodyStyled,
-} from "../styled";
+import { ModalBodyStyled } from "../styled";
 
 export const ModalBody = ({
   isEditing,
