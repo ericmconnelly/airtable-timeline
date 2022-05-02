@@ -8,7 +8,7 @@ import { TimelineStyled } from "../styled";
 import { TimelineProps } from "../types";
 
 export const Timeline: FC<TimelineProps> = () => {
-  const { lanes, width, height, zoomIn, zoomOut } = useTimeline();
+  const { lanes, width, height, zoomIn, zoomOut} = useTimeline();
   const [{ isOver, canDrop }, drop] = useDrop(
     () => ({
       accept: "event",
