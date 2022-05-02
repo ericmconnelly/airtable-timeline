@@ -2,6 +2,7 @@
 
 I built this timeline using [React.js](https://reactjs.org), [react-dnd](https://react-dnd.github.io/react-dnd), [date-fns](https://date-fns.org/) with [TypeScript](https://www.typescriptlang.org/) and [webpack](https://webpack.js.org/) to combines all module in my project needs into bundles.
 
+[CodeSandBox projects](https://codesandbox.io/s/airtable-timeline-44f9ks)
 ## Time Spent
 
 I spent roughly 12-15 hours on this projects
